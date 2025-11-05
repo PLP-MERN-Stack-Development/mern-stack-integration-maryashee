@@ -15,8 +15,10 @@ app.use(cors({
   credentials: true
 }));app.use(express.json());
 
+
 // Routes
 app.use('/api/posts', postRoutes);
+
 app.use('/api/auth', authRoutes);
 
 // Root route
