@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
@@ -13,7 +14,12 @@ const PostForm = ({ addPost }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, content })
     });
-    const newPost = await res.json();
+    const newPost = await res.json(
+      {
+        "message":"cannot find URL",
+        sucess:false
+      }
+    );
     addPost(newPost);
     navigate('/');
   };
